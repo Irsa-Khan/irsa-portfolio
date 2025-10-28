@@ -35,13 +35,14 @@ const Services = () => {
         </h2>
 
         {/* Grid Layout */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 justify-items-center">
           {services.map((service, index) => (
             <div
               key={index}
               className="bg-white border-t-4 border-blue-600 rounded-xl shadow-sm
                          p-6 sm:p-8 text-left transition-transform duration-300 ease-in-out
-                         hover:-translate-y-2 hover:shadow-lg hover:border-blue-700"
+                         hover:-translate-y-2 hover:shadow-lg hover:border-blue-700
+                         w-11/12 sm:w-10/12 md:w-full max-w-xs sm:max-w-sm"
             >
               {/* Icon */}
               <div className="mb-5 sm:mb-6">{service.icon}</div>

@@ -45,42 +45,45 @@ export default function Home() {
   return (
     <>
       {/* --- Hero Section --- */}
-      <section className="relative min-h-screen flex items-center overflow-hidden">
-        {/* background image */}
+      <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
+        {/* Background image */}
         <div
           key={slide.id}
-          className="absolute inset-0 w-full h-full bg-cover bg-center duration-500 ease-in-out"
-          style={{ backgroundImage: `url(${slide.image})` }}
+          className="absolute inset-0 w-full h-full bg-cover bg-center duration-700 ease-in-out"
+          style={{
+            backgroundImage: `url(${slide.image})`,
+            backgroundPosition: "center",
+          }}
         ></div>
 
-        {/* dark overlay */}
-        <div className="absolute inset-0 bg-black/50"></div>
+        {/* Dark overlay */}
+        <div className="absolute inset-0 bg-black/60"></div>
 
-        {/* content */}
-        <div className="relative z-20 w-full px-6 sm:px-10 md:px-24 lg:px-32 py-24 md:py-36 text-left">
-          <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-8xl font-extrabold text-white drop-shadow-lg leading-tight">
+        {/* Content */}
+        <div className="relative z-20 w-full text-center sm:text-left px-4 sm:px-8 md:px-16 lg:px-24 py-16 sm:py-24 md:py-36">
+          <h1 className="text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold text-white drop-shadow-lg leading-tight">
             {slide.title}
           </h1>
 
-          <p className="mt-4 sm:mt-6 text-base sm:text-lg text-white/90 max-w-xl">
+          <p className="mt-3 sm:mt-5 text-sm sm:text-base md:text-lg text-white/90 max-w-lg mx-auto sm:mx-0">
             {slide.text}
           </p>
 
-          <div className="mt-6 sm:mt-8">
+          <div className="mt-5 sm:mt-8">
             <a
               href="/contact"
-              className="inline-block bg-blue-600 text-white text-sm sm:text-base px-5 sm:px-6 py-2.5 sm:py-3 rounded-full shadow-md hover:shadow-lg transition"
+              className="inline-block bg-blue-600 text-white text-sm sm:text-base px-5 sm:px-7 py-2.5 sm:py-3 rounded-full shadow-md hover:shadow-lg hover:bg-blue-700 transition"
             >
               Start a project
             </a>
           </div>
         </div>
 
-        {/* navigation buttons */}
-        <div className="absolute right-5 sm:right-10 md:right-20 top-1/2 transform -translate-y-1/2 z-30 flex flex-col gap-3 sm:gap-4">
+        {/* Navigation buttons (mobile adjusted) */}
+        <div className="absolute bottom-5 sm:bottom-auto sm:top-1/2 right-0 sm:right-10 md:right-20 transform sm:-translate-y-1/2 z-30 flex sm:flex-col gap-3 sm:gap-4 justify-center px-4">
           <button
             onClick={handlePrev}
-            className="w-9 h-9 sm:w-10 sm:h-10 md:w-12 md:h-12 rounded-full bg-blue-500/95 text-white flex items-center justify-center shadow-lg hover:bg-blue-600 transition"
+            className="w-9 h-9 sm:w-10 sm:h-10 md:w-12 md:h-12 rounded-full bg-blue-600 text-white flex items-center justify-center shadow-md hover:bg-blue-700 transition"
             aria-label="Previous slide"
           >
             <svg
@@ -100,7 +103,7 @@ export default function Home() {
 
           <button
             onClick={handleNext}
-            className="w-9 h-9 sm:w-10 sm:h-10 md:w-12 md:h-12 rounded-full bg-blue-500/95 text-white flex items-center justify-center shadow-lg hover:bg-blue-600 transition"
+            className="w-9 h-9 sm:w-10 sm:h-10 md:w-12 md:h-12 rounded-full bg-blue-600 text-white flex items-center justify-center shadow-md hover:bg-blue-700 transition"
             aria-label="Next slide"
           >
             <svg

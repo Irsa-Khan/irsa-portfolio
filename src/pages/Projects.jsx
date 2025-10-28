@@ -89,32 +89,8 @@ const ParallaxProject = ({ project, reverse }) => {
         reverse ? "md:flex-row-reverse" : ""
       } md:min-h-[180vh] border-b border-gray-200`}
     >
-      {/* --- Image Section --- */}
-      <div className="w-full md:w-1/2 md:ml-20 mt-8 md:mt-10">
-        <div className="sticky top-[140px] hidden md:block h-[calc(100vh-140px)] overflow-hidden">
-          {/* Parallax image for desktop */}
-          <img
-            src={project.image}
-            alt={project.title}
-            className="w-full h-auto object-cover transition-transform duration-300 ease-out rounded-lg shadow-lg"
-            style={{
-              transform: `translateY(${offset * -50}%)`,
-            }}
-          />
-        </div>
-
-        {/* Normal image for mobile */}
-        <div className="md:hidden">
-          <img
-            src={project.image}
-            alt={project.title}
-            className="w-full h-64 sm:h-80 object-cover rounded-lg shadow-md"
-          />
-        </div>
-      </div>
-
-      {/* --- Text Section --- */}
-      <div className="w-full md:w-1/2 flex items-start justify-center md:sticky md:top-[140px] md:h-[calc(100vh-140px)] bg-white z-10">
+      {/* --- Text Section (on top for mobile) --- */}
+      <div className="w-full md:w-1/2 flex items-start justify-center md:sticky md:top-[140px] md:h-[calc(100vh-140px)] bg-white z-10 order-1 md:order-none">
         <div className="max-w-lg p-6 sm:p-8 md:p-10 mt-4 md:mt-0 text-center md:text-left">
           <h3 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-3 sm:mb-4">
             {project.title}
@@ -138,6 +114,30 @@ const ParallaxProject = ({ project, reverse }) => {
           >
             Visit Project →
           </a>
+        </div>
+      </div>
+
+      {/* --- Image Section (below text on mobile) --- */}
+      <div className="w-full md:w-1/2 md:ml-20 mt-4 md:mt-10 order-2 md:order-none">
+        {/* Sticky parallax image for desktop */}
+        <div className="sticky top-[140px] hidden md:block h-[calc(100vh-140px)] overflow-hidden">
+          <img
+            src={project.image}
+            alt={project.title}
+            className="w-full h-auto object-cover transition-transform duration-300 ease-out rounded-lg shadow-lg"
+            style={{
+              transform: `translateY(${offset * -50}%)`,
+            }}
+          />
+        </div>
+
+        {/* Full-width image for mobile */}
+        <div className="md:hidden">
+          <img
+            src={project.image}
+            alt={project.title}
+            className="w-full h-auto object-cover rounded-lg shadow-md mt-4"
+          />
         </div>
       </div>
     </div>
