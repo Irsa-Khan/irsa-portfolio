@@ -43,14 +43,14 @@ const Projects = () => {
   return (
     <section className="bg-white relative">
       {/* --- Section Heading --- */}
-      <div className="py-16 border-b border-gray-200">
-        <h2 className="text-4xl font-bold text-center text-gray-900">
+      <div className="py-14 sm:py-16 border-b border-gray-200">
+        <h2 className="text-3xl sm:text-4xl font-bold text-center text-gray-900">
           My Projects
         </h2>
       </div>
 
       {/* --- Projects List --- */}
-      <div className="space-y-40">
+      <div className="space-y-24 sm:space-y-32 md:space-y-40">
         {projects.map((project, index) => (
           <ParallaxProject
             key={project.id}
@@ -72,7 +72,6 @@ const ParallaxProject = ({ project, reverse }) => {
       if (!sectionRef.current) return;
       const rect = sectionRef.current.getBoundingClientRect();
       const windowHeight = window.innerHeight;
-
       const start = windowHeight * 0.2;
       const end = windowHeight * 1.5;
       const progress = Math.min(Math.max((start - rect.top) / end, 0), 1);
@@ -88,34 +87,45 @@ const ParallaxProject = ({ project, reverse }) => {
       ref={sectionRef}
       className={`relative flex flex-col md:flex-row ${
         reverse ? "md:flex-row-reverse" : ""
-      } min-h-[180vh] border-b border-gray-200`}
+      } md:min-h-[180vh] border-b border-gray-200`}
     >
-      {/* --- Image Section (Parallax Scroll) --- */}
-      <div className="md:w-1/2 ml-20 w-full sticky top-[140px] h-[calc(100vh-140px)] overflow-hidden mt-10">
-        {/* 👆 Added margin-top here */}
-        <img
-          src={project.image}
-          alt={project.title}
-          className="w-full h-auto object-cover transition-transform duration-300 ease-out rounded-lg shadow-lg"
-          style={{
-            transform: `translateY(${offset * -50}%)`,
-          }}
-        />
+      {/* --- Image Section --- */}
+      <div className="w-full md:w-1/2 md:ml-20 mt-8 md:mt-10">
+        <div className="sticky top-[140px] hidden md:block h-[calc(100vh-140px)] overflow-hidden">
+          {/* Parallax image for desktop */}
+          <img
+            src={project.image}
+            alt={project.title}
+            className="w-full h-auto object-cover transition-transform duration-300 ease-out rounded-lg shadow-lg"
+            style={{
+              transform: `translateY(${offset * -50}%)`,
+            }}
+          />
+        </div>
+
+        {/* Normal image for mobile */}
+        <div className="md:hidden">
+          <img
+            src={project.image}
+            alt={project.title}
+            className="w-full h-64 sm:h-80 object-cover rounded-lg shadow-md"
+          />
+        </div>
       </div>
 
-      {/* --- Text Section (aligned to top) --- */}
-      <div className="md:w-1/2 w-full flex items-start justify-center sticky top-[140px] h-[calc(100vh-140px)] bg-white z-10">
-        <div className="max-w-lg p-10 mt-0">
-          <h3 className="text-3xl font-bold text-gray-900 mb-4">
+      {/* --- Text Section --- */}
+      <div className="w-full md:w-1/2 flex items-start justify-center md:sticky md:top-[140px] md:h-[calc(100vh-140px)] bg-white z-10">
+        <div className="max-w-lg p-6 sm:p-8 md:p-10 mt-4 md:mt-0 text-center md:text-left">
+          <h3 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-3 sm:mb-4">
             {project.title}
           </h3>
-          <p className="text-gray-600 mb-4 leading-relaxed">
+          <p className="text-gray-600 text-sm sm:text-base mb-4 leading-relaxed">
             {project.description}
           </p>
-          <p className="text-gray-800 mb-6">
+          <p className="text-gray-800 mb-5 text-sm sm:text-base">
             <span className="font-semibold">Role:</span> {project.role}
           </p>
-          <blockquote className="italic border-l-4 border-gray-300 pl-4 text-gray-700 mb-6">
+          <blockquote className="italic border-l-4 border-gray-300 pl-3 sm:pl-4 text-gray-700 mb-5">
             “{project.quote}”
             <br />
             <span className="block mt-2 font-medium text-gray-900">
@@ -124,7 +134,7 @@ const ParallaxProject = ({ project, reverse }) => {
           </blockquote>
           <a
             href={project.link}
-            className="uppercase tracking-widest text-blue-600 hover:text-blue-800 font-semibold text-sm"
+            className="inline-block uppercase tracking-widest text-blue-600 hover:text-blue-800 font-semibold text-xs sm:text-sm"
           >
             Visit Project →
           </a>

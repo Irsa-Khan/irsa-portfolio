@@ -49,40 +49,42 @@ export default function Home() {
         {/* background image */}
         <div
           key={slide.id}
-          className="absolute inset-0 w-full h-full bg-cover bg-center"
+          className="absolute inset-0 w-full h-full bg-cover bg-center duration-500 ease-in-out"
           style={{ backgroundImage: `url(${slide.image})` }}
         ></div>
 
         {/* dark overlay */}
-        <div className="absolute inset-0 bg-black/40"></div>
+        <div className="absolute inset-0 bg-black/50"></div>
 
         {/* content */}
-        <div className="relative z-20 max-w-4xl pl-10 md:pl-24 lg:pl-32 py-36 text-left">
-          <h1 className="text-6xl md:text-8xl font-extrabold text-white drop-shadow-lg leading-tight">
+        <div className="relative z-20 w-full px-6 sm:px-10 md:px-24 lg:px-32 py-24 md:py-36 text-left">
+          <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-8xl font-extrabold text-white drop-shadow-lg leading-tight">
             {slide.title}
           </h1>
 
-          <p className="mt-6 text-lg text-white/90 max-w-xl">{slide.text}</p>
+          <p className="mt-4 sm:mt-6 text-base sm:text-lg text-white/90 max-w-xl">
+            {slide.text}
+          </p>
 
-          <div className="mt-8">
+          <div className="mt-6 sm:mt-8">
             <a
               href="/contact"
-              className="inline-block bg-blue-600 text-white px-6 py-3 rounded-full shadow-md hover:shadow-lg transition"
+              className="inline-block bg-blue-600 text-white text-sm sm:text-base px-5 sm:px-6 py-2.5 sm:py-3 rounded-full shadow-md hover:shadow-lg transition"
             >
               Start a project
             </a>
           </div>
         </div>
 
-        {/* right-side navigation buttons */}
-        <div className="absolute right-10 md:right-40 top-1/2 transform -translate-y-1/2 z-30 flex flex-col gap-4">
+        {/* navigation buttons */}
+        <div className="absolute right-5 sm:right-10 md:right-20 top-1/2 transform -translate-y-1/2 z-30 flex flex-col gap-3 sm:gap-4">
           <button
             onClick={handlePrev}
-            className="w-12 h-12 rounded-full bg-blue-500/95 text-white flex items-center justify-center shadow-lg hover:bg-blue-600 transition"
+            className="w-9 h-9 sm:w-10 sm:h-10 md:w-12 md:h-12 rounded-full bg-blue-500/95 text-white flex items-center justify-center shadow-lg hover:bg-blue-600 transition"
             aria-label="Previous slide"
           >
             <svg
-              className="w-5 h-5"
+              className="w-4 h-4 sm:w-5 sm:h-5"
               fill="none"
               stroke="currentColor"
               viewBox="0 0 24 24"
@@ -98,11 +100,11 @@ export default function Home() {
 
           <button
             onClick={handleNext}
-            className="w-12 h-12 rounded-full bg-blue-500/95 text-white flex items-center justify-center shadow-lg hover:bg-blue-600 transition"
+            className="w-9 h-9 sm:w-10 sm:h-10 md:w-12 md:h-12 rounded-full bg-blue-500/95 text-white flex items-center justify-center shadow-lg hover:bg-blue-600 transition"
             aria-label="Next slide"
           >
             <svg
-              className="w-5 h-5"
+              className="w-4 h-4 sm:w-5 sm:h-5"
               fill="none"
               stroke="currentColor"
               viewBox="0 0 24 24"

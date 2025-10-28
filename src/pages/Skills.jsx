@@ -15,25 +15,29 @@ const skills = [
 
 const Skills = () => {
   return (
-    <section id="skills" className="py-20 bg-white text-gray-900">
-      <div className="max-w-5xl mx-auto px-6">
+    <section id="skills" className="py-16 sm:py-20 bg-white text-gray-900">
+      <div className="max-w-5xl mx-auto px-4 sm:px-6 md:px-8">
         {/* --- Section Header --- */}
-        <div className="text-center mb-12">
-          <p className="text-sm uppercase tracking-[4px] text-gray-500 mb-2">
+        <div className="text-center mb-10 sm:mb-12">
+          <p className="text-xs sm:text-sm uppercase tracking-[4px] text-gray-500 mb-2">
             My Specialty
           </p>
-          <h2 className="text-4xl font-bold tracking-wide">My Skills</h2>
-          <p className="max-w-2xl mx-auto mt-4 text-gray-600 leading-relaxed">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold tracking-wide">
+            My Skills
+          </h2>
+          <p className="max-w-2xl mx-auto mt-3 sm:mt-4 text-gray-600 text-sm sm:text-base leading-relaxed">
             Technologies and tools I use to design, build, and optimize full-stack web applications.
           </p>
         </div>
 
         {/* --- Skills Grid --- */}
-        <div className="grid md:grid-cols-2 gap-x-12 gap-y-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-8 sm:gap-x-12 gap-y-6 sm:gap-y-8">
           {skills.map((skill, index) => (
             <div key={index} className="relative">
               {/* Skill Title */}
-              <p className="font-semibold mb-2">{skill.name}</p>
+              <p className="font-semibold mb-2 text-sm sm:text-base">
+                {skill.name}
+              </p>
 
               {/* Progress Bar Container */}
               <div className="relative w-full h-2 bg-gray-200 rounded-full overflow-visible">
@@ -51,7 +55,7 @@ const Skills = () => {
 
                 {/* Percentage Above Circle */}
                 <span
-                  className={`absolute -top-6 font-semibold text-sm ${skill.text} transition-all duration-700`}
+                  className={`absolute -top-6 font-semibold text-xs sm:text-sm ${skill.text} transition-all duration-700`}
                   style={{ left: `calc(${skill.level}% - 10px)` }}
                 >
                   {skill.level}%
