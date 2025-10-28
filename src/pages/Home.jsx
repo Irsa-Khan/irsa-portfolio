@@ -45,7 +45,7 @@ export default function Home() {
   return (
     <>
       {/* --- Hero Section --- */}
-      <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
+      <section className="relative min-h-screen flex items-center justify-center overflow-hidden w-full max-w-[100vw]">
         {/* Background image */}
         <div
           key={slide.id}
@@ -60,12 +60,12 @@ export default function Home() {
         <div className="absolute inset-0 bg-black/60"></div>
 
         {/* Content */}
-        <div className="relative z-20 w-full text-center sm:text-left px-4 sm:px-8 md:px-16 lg:px-24 py-16 sm:py-24 md:py-36">
+        <div className="relative z-20 w-full text-center px-4 sm:px-8 md:px-16 lg:px-24 py-16 sm:py-24 md:py-36 overflow-x-hidden">
           <h1 className="text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold text-white drop-shadow-lg leading-tight">
             {slide.title}
           </h1>
 
-          <p className="mt-3 sm:mt-5 text-sm sm:text-base md:text-lg text-white/90 max-w-lg mx-auto sm:mx-0">
+          <p className="mt-3 sm:mt-5 text-sm sm:text-base md:text-lg text-white/90 max-w-lg mx-auto">
             {slide.text}
           </p>
 
@@ -79,8 +79,8 @@ export default function Home() {
           </div>
         </div>
 
-        {/* Navigation buttons (mobile adjusted) */}
-        <div className="absolute bottom-5 sm:bottom-auto sm:top-1/2 right-0 sm:right-10 md:right-20 transform sm:-translate-y-1/2 z-30 flex sm:flex-col gap-3 sm:gap-4 justify-center px-4">
+        {/* Navigation buttons */}
+        <div className="absolute bottom-5 sm:bottom-auto sm:top-1/2 right-4 sm:right-8 md:right-16 transform sm:-translate-y-1/2 z-30 flex sm:flex-col gap-3 sm:gap-4 justify-center overflow-hidden">
           <button
             onClick={handlePrev}
             className="w-9 h-9 sm:w-10 sm:h-10 md:w-12 md:h-12 rounded-full bg-blue-600 text-white flex items-center justify-center shadow-md hover:bg-blue-700 transition"
@@ -123,26 +123,16 @@ export default function Home() {
         </div>
       </section>
 
-      {/* --- About Section --- */}
-      <About />
-
-      {/* --- Education Section --- */}
-      <Education />
-
-      {/* --- Projects Section --- */}
-      <Projects />
-
-      {/* --- Skills Section --- */}
-      <Skills />
-
-      {/* --- Services Section --- */}
-      <Services />
-
-      {/* --- Contact Section --- */}
-      <Contact />
-
-      {/* --- Footer Section --- */}
-      <Footer />
+      {/* --- Other Sections --- */}
+      <main className="w-full max-w-[100vw] overflow-x-hidden">
+        <About />
+        <Education />
+        <Projects />
+        <Skills />
+        <Services />
+        <Contact />
+        <Footer />
+      </main>
     </>
   );
 }
